@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import CampaignTable from '@/components/CampaignTable';
 
 export default function CampaignsPage() {
@@ -15,10 +16,8 @@ export default function CampaignsPage() {
             </div>
             <button
               className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors"
-              disabled
-              title="Coming soon - Create new campaign"
             >
-              + New Campaign
+              <Link href="/create-campaign">+ New Campaign</Link>
             </button>
           </div>
         </div>
