@@ -191,11 +191,6 @@ function microsToDollars(micros: number): number {
   return Math.round((micros / 1_000_000) * 100) / 100;
 }
 
-function pct(a: number, b: number): number {
-  if (b === 0) return 0;
-  return Math.round((a / b) * 10000) / 100; // two decimal places
-}
-
 function normalizeStatus(raw: string): Campaign["status"] {
   const upper = raw?.toUpperCase() || "REMOVED";
   if (upper === "ENABLED" || upper === "PAUSED") return upper;

@@ -210,8 +210,7 @@ function nextSuggestionId(): string {
 
 function generateSuggestions(
   campaigns: Campaign[],
-  scores: CampaignScore[],
-  allMetrics: PerformanceMetrics[]
+  scores: CampaignScore[]
 ): ImprovementSuggestion[] {
   const suggestions: ImprovementSuggestion[] = [];
 
@@ -491,8 +490,7 @@ export async function runEvaluation(
   // Generate suggestions
   const suggestions = generateSuggestions(
     filteredCampaigns,
-    campaignScores,
-    [] // allMetrics passed as empty since we fetch per-campaign
+    campaignScores
   );
 
   // Overall account score

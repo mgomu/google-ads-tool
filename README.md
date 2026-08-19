@@ -8,6 +8,8 @@ A Next.js application for managing Google Ads campaigns, monitoring performance,
 - 💰 **Budget Management** - Track spending and optimize budgets
 - 📈 **Performance Reports** - Detailed analytics and reporting
 - 🔐 **Secure API Integration** - OAuth2 authentication with Google Ads API
+- 🧠 **Performance Evaluation** - Campaign scores, trends, and prioritized suggestions
+- ✨ **Campaign Drafts** - New campaign recommendations learned from historical performance
 
 ## Getting Started
 
@@ -83,7 +85,10 @@ google-ads-tool/
 ## API Endpoints
 
 - `GET /api/google-ads/campaigns` - List all campaigns
-- `POST /api/google-ads/campaigns` - Create a new campaign (coming soon)
+- `GET /api/google-ads/campaigns/:id` - Campaign detail with ad groups
+- `GET /api/google-ads/performance` - Daily performance metrics
+- `GET /api/google-ads/evaluate` - Evaluate performance and generate suggestions
+- `POST /api/google-ads/campaigns/create` - Generate a campaign draft from historical data
 
 ## Deployment to Vercel
 
@@ -137,7 +142,7 @@ For detailed instructions, see [Google Ads API Documentation](https://developers
 
 ## Tech Stack
 
-- **Framework**: Next.js 15 with App Router
+- **Framework**: Next.js 16 with App Router
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **Deployment**: Vercel

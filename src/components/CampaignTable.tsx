@@ -40,7 +40,7 @@ export default function CampaignTable() {
         } else {
           setCampaigns(data.campaigns || []);
         }
-      } catch (err) {
+      } catch {
         setError('Failed to load campaigns');
       } finally {
         setLoading(false);

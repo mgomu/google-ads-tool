@@ -67,10 +67,6 @@ function formatCurrency(n: number): string {
   return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(n);
 }
 
-function formatNumber(n: number): string {
-  return new Intl.NumberFormat('en-US').format(n);
-}
-
 export default function EvaluatePage() {
   const [result, setResult] = useState<EvaluationResult | null>(null);
   const [loading, setLoading] = useState(true);
@@ -95,7 +91,11 @@ export default function EvaluatePage() {
     }
   }, []);
 
-  useEffect(() => { fetchEvaluation(); }, [fetchEvaluation]);
+  useEffect(() => {
+    // Defer the initial request so the effect does not synchronously update state.
+    const timer = window.setTimeout(() => { void fetchEvaluation(); }, 0);
+    return () => window.clearTimeout(timer);
+  }, [fetchEvaluation]);
 
   return (
     <div className="min-h-screen bg-gray-50">
